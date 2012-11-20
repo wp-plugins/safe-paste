@@ -69,7 +69,7 @@ Maybe adding a settings page to choose wich tags to remove or leave and setting 
 
 == Changelog ==
 
-= 1.1 =
+= 1.1.1 =
 
 * Changed: Allow 'width' and 'height' for img tag. This allow to resize images in the WP editor.
 
