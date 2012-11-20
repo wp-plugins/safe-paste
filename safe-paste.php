@@ -4,7 +4,7 @@ Plugin Name: Safe Paste
 Plugin URI: http://www.samuelaguilera.com
 Description: Removes a lot of HTML tags from post and page content before inserting it to database. Preventing users to paste undesired HTML tags to post content.
 Author: Samuel Aguilera
-Version: 1.1
+Version: 1.1.1
 Author URI: http://www.samuelaguilera.com
 License: GPL2
 */
@@ -35,7 +35,7 @@ function SAR_cleanPost($data) {
     
               // These are the tags to STAY, add or remove any if you know how to do it... (but don't ask me if you don't!!!)
 
-              $cleanPost_tags = array( 'p' => array(), 'a' => array('href' => array(),'title' => array()), 'img' => array('src' => array(),'alt' => array(), 'class' => array()),
+              $cleanPost_tags = array( 'p' => array(), 'a' => array('href' => array(),'title' => array()), 'img' => array('src' => array(),'alt' => array(), 'class' => array(), 'width' => array(), 'height' => array() ),
                'h1' => array(), 'h2' => array(), 'h3' => array(), 'h4' => array(), 'h5' => array(), 'h6' => array(),
                'blockquote' => array(), 'ol' => array(), 'ul' => array(), 'li' => array(), 'em' => array(), 'strong' => array(),
                'del' => array() );
@@ -46,14 +46,11 @@ function SAR_cleanPost($data) {
               
               $data['post_content'] = wp_kses($data['post_content'], $cleanPost_tags, $allowed_protocols);
 
-              // Removing &nbsp;
+              // Now HTML entities like &nbsp;
               
-              $data['post_content'] = preg_replace("/&nbsp;/i","",$data['post_content']);
+              $data['post_content'] = preg_replace("/&#?[a-z0-9]{2,8};/i","",$data['post_content']);
               
-              // Removes ALL HTML entities, not only &nbsp;
-              // $data['post_content'] = preg_replace("/&#?[a-z0-9]{2,8};/i","",$data['post_content']);
-              
-              return $data; // return modified data to WP
+              return $data; // return data to WP
         
         } else {
         

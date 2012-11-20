@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: strip tags, html, tinymce, post content, editor, wysiwyg
 Requires at least: 3.0
 Tested up to: 3.4.2
-Stable tag: 1.1
+Stable tag: 1.1.1
 License: GPL2
 
 Removes a lot of HTML tags from post and page content before inserting it to database. Preventing users to paste undesired HTML tags to content.
@@ -71,6 +71,10 @@ Maybe adding a settings page to choose wich tags to remove or leave and setting 
 
 = 1.1 =
 
+* Changed: Allow 'width' and 'height' for img tag. This allow to resize images in the WP editor.
+
+= 1.1 =
+
 * Changed: Now using WP function wp_kses instead of generic PHP strip_tags. This change also allow to use cforms plugin, that uses HTML comments to insert their forms (a very bad method by the way, should use shortcodes instead).
 * Added: Allow only http and https protocols in post/page content.
 
@@ -80,5 +84,5 @@ Maybe adding a settings page to choose wich tags to remove or leave and setting 
 
 == Upgrade Notice ==
 
-= 1.1 =
-Recommended upgrade. Fixed cforms compatibility.
+= 1.1.1 =
+Changed: Allow 'width' and 'height' for img tag. This allow to resize images in the WP editor.
