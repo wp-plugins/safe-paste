@@ -4,14 +4,14 @@ Plugin Name: Safe Paste
 Plugin URI: http://www.samuelaguilera.com
 Description: Removes a lot of HTML tags from post and page content before inserting it to database. Preventing users to paste undesired HTML tags to post content.
 Author: Samuel Aguilera
-Version: 1.1.1
+Version: 1.1.2
 Author URI: http://www.samuelaguilera.com
 License: GPL2
 */
 
 /*
 This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License version 3 as published by
+it under the terms of the GNU General Public License version 2 as published by
 the Free Software Foundation.
 
 This program is distributed in the hope that it will be useful,
@@ -48,7 +48,11 @@ function SAR_cleanPost($data) {
 
               // Now HTML entities like &nbsp;
               
-              $data['post_content'] = preg_replace("/&#?[a-z0-9]{2,8};/i","",$data['post_content']);
+              // This method removes ALL HTML entities but removes the & character when using in links arguments too
+              //$data['post_content'] = preg_replace("/&#?[a-z0-9]{2,8};/i","",$data['post_content']);
+
+              // Removes only &nbsp;
+              $data['post_content'] = preg_replace("/&nbsp;/i","",$data['post_content']);
               
               return $data; // return data to WP
         

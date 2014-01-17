@@ -3,7 +3,7 @@ Contributors: samuelaguilera
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8ER3Y2THBMFV6
 Tags: strip tags, html, tinymce, post content, editor, wysiwyg
 Requires at least: 3.0
-Tested up to: 3.4.2
+Tested up to: 3.8
 Stable tag: 1.1.1
 License: GPL2
 
