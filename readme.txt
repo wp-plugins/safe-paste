@@ -1,10 +1,10 @@
 === Safe Paste ===
 Contributors: samuelaguilera
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8ER3Y2THBMFV6
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=H2KN258J2377Q
 Tags: strip tags, html, tinymce, post content, editor, wysiwyg
 Requires at least: 3.0
 Tested up to: 3.8
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPL2
 
 Removes a lot of HTML tags from post and page content before inserting it to database. Preventing users to paste undesired HTML tags to content.
@@ -19,7 +19,7 @@ Do you have users that creates content for you?. Do you own an online Magazine?
 
 If you answer yes to at least one of the above questions, I'm sure you have minor design troubles in your site because of your users using copy/paste (ofcourse without using TinyMCE buttons to remove code) while not being aware of all the HTML tags they are pasting...
 
-This plugin simply removes a lot of HTML tags (and HTML entities) from post and page content before inserting it to database. Preventing users (including you) to paste undesired HTML tags to the content.
+This plugin simply removes a lot of HTML tags (and non breaking space HTML entitie) from post and page content before inserting it to database. Preventing users (including you) to paste undesired HTML tags to the content.
 
 It only does his work while you're editing your post/page (it can be in any status). So it'll do the job on the new post/pages you create after the activation of the plugin and in old content that you edit after the plugin activation.
 
@@ -42,7 +42,9 @@ These are the HTML tags that stays:
 &lt;strong&gt;
 &lt;del&gt;
 
-Any other HTML tag (or attributes) should be removed.
+Any other HTML tag (or attributes) and &amp;nbsp; (non breaking space) should be removed.
+
+**NOTE: This program is distributed under [GPL2](http://www.gnu.org/licenses/gpl-2.0.html) licence in the hope that it will be useful, but WITHOUT ANY WARRANTY. I'm not responsible of ANY trouble or damage your site may have due to the use of this plugin. YOU and only YOU are responsible of your site and having backups and restoration plans. If you use this plugin you're accepting this.** 
 
 = Features =
 
@@ -69,6 +71,10 @@ Maybe adding a settings page to choose wich tags to remove or leave and setting 
 
 == Changelog ==
 
+= 1.1.2 =
+
+* Replaced function that removes all HTML entities with a previous one that only removes &ampnbsp; (non breaking space) to fix issue reported at http://de.forums.wordpress.org/topic/wordpress-loscht-aus-links-von-aspx-seiten?replies=6#post-403093
+
 = 1.1.1 =
 
 * Changed: Allow 'width' and 'height' for img tag. This allow to resize images in the WP editor.
@@ -83,6 +89,9 @@ Maybe adding a settings page to choose wich tags to remove or leave and setting 
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.1.2 =
+Replaced function that removes all HTML entities with a previous one that only removes &ampnbsp; (non breaking space) to fix issue reported at http://de.forums.wordpress.org/topic/wordpress-loscht-aus-links-von-aspx-seiten?replies=6#post-403093
 
 = 1.1.1 =
 Changed: Allow 'width' and 'height' for img tag. This allow to resize images in the WP editor.

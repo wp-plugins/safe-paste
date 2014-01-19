@@ -46,11 +46,6 @@ function SAR_cleanPost($data) {
               
               $data['post_content'] = wp_kses($data['post_content'], $cleanPost_tags, $allowed_protocols);
 
-              // Now HTML entities like &nbsp;
-              
-              // This method removes ALL HTML entities but removes the & character when using in links arguments too
-              //$data['post_content'] = preg_replace("/&#?[a-z0-9]{2,8};/i","",$data['post_content']);
-
               // Removes only &nbsp;
               $data['post_content'] = preg_replace("/&nbsp;/i","",$data['post_content']);
               
